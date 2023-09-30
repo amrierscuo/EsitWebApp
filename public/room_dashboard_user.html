@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Room Page</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/messages.js"></script>
+    <script src="scripts/getRoomInfoUser.js"></script>
+    <script src="scripts/authUser.js"></script>
+    <script src ="scripts/drawChart.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+    <header style="text-align: right; padding: 10px;">
+        <a href="user_dashboard.html" id="abacktorooms" style="text-decoration: none; background-color: #3399ff;">
+          <h1 id="backtorooms" style="position: static; margin-left: 2%; margin-right: 2%; margin-top: 2%; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-decoration: none; text-align: center; background-color: #3399ff; color: whitesmoke;">Torna indietro</h1>
+        </a>
+    </header>
+    <div id="contentWrapper">
+    
+    <h1 id="hmonitoraggio" class="hdash">Clicca per vedere i dettagli della stanza</h1>
+    <div id="monitoraggio" class="divdash">
+      <h2>Valori rilevati:</h2>
+      <p id="uumidità">Rilevamento umidità in corso...</p>
+      <p id="utemperatura">Rilevamento temperatura in corso...</p> 
+      <h2>Stato stanza:</h2>
+      <p id="umodalità">Rilevamento modalità in corso...</p>
+      <p id="uventilatore">Rilevamento stato ventilatore in corso...</p>
+      <p id="usoglia">Rilevamento soglia in corso...</p> 
+        <div class="containergrafico">
+        <h3>Grafico Temperatura</h3>
+        <canvas id="myChartTemp" width="200px" height="100px"></canvas>
+      </div>
+      <div class="containergrafico"> 
+        <h3>Grafico Umidità</h3>
+
+        <canvas id="myChartHum" width="200px" height="100px"></canvas>
+      </div>
+        
+    </div>
+</div>
+    <h1 id="hsettings" class="hdash">Impostazioni stanza</h1>
+    <div id="roomDetails">
+      <div id="setSoglie" class="divdash">
+        <h3>Imposta Soglie</h3>
+        <form id="formSoglie" class="formsettings">
+          <select id="menu">
+            <option value="opzione1">Estiva 26C° e 60% di umidità</option>
+            <option value="opzione2">Invernale 22C° e 50% di umidità</option>
+            <option value="opzione3" id="opzione3">Personalizza le soglie</option>
+          </select>
+          <br>
+          <div id="inputs">        
+           <br>  
+          <input type="text" id="temperatura" placeholder="Temperatura C°">
+          <br>
+          <input type="text" id="umidita" placeholder="Umidità %">
+          <br>
+        </div>
+          <input type="submit" value="Imposta Soglia" class="setoptionsubmit">
+        </form>
+      </div>
+      <br>
+      <div id="setModVent" class="divdash">
+        <h3>Modalità ventilatore</h3>
+        <form id="formModVent" class="formsettings">
+          <label>
+            <input type="radio" name="opzionemod" value="auto_fan" >
+            Automatica
+          </label>
+          <label>
+            <input type="radio" name="opzionemod" value="manu_fan">
+            Manuale
+          </label>
+          <br>
+          <input type="submit" value="Imposta Modalità" class="setoptionsubmit">
+        </form>
+      </div>
+      <br>
+      <div id="setVent" class="divdash">
+        <h3>Ventilatore</h3>
+        <form id="formVent" method="post" class="formsettings">
+          <label>
+            <input type="radio" name="opzioneven" value="start_fan">
+            Acceso
+          </label>
+          
+          <label>
+            <input type="radio" name="opzioneven" value="stop_fan">
+            Spento
+          </label>
+          <br>
+          <input type="submit" value="Imposta Ventilatore" id="subSetVent" class="setoptionsubmit">
+        </form>
+      </div>
+      <br>
+    </div>
+
+</body>
+</html>

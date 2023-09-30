@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="scripts/authAdmin.js"></script>
+  <script src="scripts/getRoomsAdmin.js"></script>
+</head>
+<body>
+  <h1 class="hdash" id="welcomeadm">Benvenuto Amministratore, <a href="/logout">Esci dall'account</a></h1> 
+  <h1 class="hdash" id="hstanze">Stanze</h1>
+  <ul id="rooms", class="cardboard-room">
+  </ul>
+  <h1 class="hdash" id="hcreateroom">Crea una nuova stanza</h1>
+  <div class="divdash" id="createroom">
+  <form id="createRoomForm" class="formsettings">
+    <input type="text" id="scheda" name="scheda" placeholder="Inserisci Mac ADDRESS scheda"><br>
+    <button type="submit" class="setoptionsubmit">Create</button>
+  </form>
+  </div>
+  
+  <h1 class="hdash" id="hassign">Assegna una stanza a un utente</h1>
+  <div class="divdash" id="assign">
+  <form id="assignRoomForm" class="formsettings">
+    <select id="utenti" name="utenti" placeholder="utenti" class="adminselect">
+      <option value="utente">Utente</option>
+    </select>
+    <select id="stanze" name="stanze" placeholder="stanze" class="adminselect">
+      <option value="stanza">Stanza</option>
+    </select><br>
+    <button type="submit" class="setoptionsubmit">Assegna</button>
+  </form>
+  </div>
+  
+  <h1 class="hdash" id="hdisassign">Disassegna una stanza a un utente</h1>
+  <div class="divdash" id="disassign">
+  <form id="disassociateRoomForm" class="formsettings">
+    <select id="utentid" name="utentid" placeholder="utenti" class="adminselect">
+      <option value="utente">Utente</option>
+    </select>
+    <select id="stanzed" name="stanzed" placeholder="stanze" class="adminselect">
+      <option value="stanza">Stanza</option>
+    </select><br>
+    <button type="submit" class="setoptionsubmit">Disassegna</button>
+  </form>
+</div>
+</body>
+</html>
